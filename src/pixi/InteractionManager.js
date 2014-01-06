@@ -87,7 +87,7 @@ PIXI.InteractionManager.prototype.collectInteractiveSprite = function(displayObj
 			{
 				iParent.interactiveChildren = true;
 				child.__iParent = iParent;
-				iParent.__iChildren[i] = child;
+				iParent.__iChildren.push(child);
 				this.interactiveItems.push(child);
 
 				if(child.children.length > 0)
