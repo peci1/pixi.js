@@ -3403,11 +3403,17 @@ PIXI.EventTarget = function () {
 
 	this.dispatchEvent = this.emit = function ( event ) {
 		
-		for ( var i = 0; i < listeners[ event.type ].length; i++ ) {
+		if ( !listeners[ event.type ] || !listeners[ event.type ].length ) {
 
-			listeners[ event.type ][ i ]( event );
-			
-		}
+            return;
+
+        }
+
+        for(var i = 0, l = listeners[ event.type ].length; i < l; i++) {
+
+            listeners[ event.type ][ i ]( event );
+
+        }
 
 	};
 
