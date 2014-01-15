@@ -37,9 +37,9 @@ PIXI.EventTarget = function () {
 
 	this.dispatchEvent = this.emit = function ( event ) {
 		
-		for ( var listener in listeners[ event.type ] ) {
+		for ( var i = 0; i < listeners[ event.type ].length; i++ ) {
 
-			listeners[ event.type ][ listener ]( event );
+			listeners[ event.type ][ i ]( event );
 			
 		}
 
