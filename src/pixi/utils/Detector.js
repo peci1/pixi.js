@@ -28,8 +28,9 @@ PIXI.autoDetectRenderer = function(width, height, view, transparent, antialias)
 	// TEMP FIX
 	if(webgl)
 	{
-		var ie =  (navigator.userAgent.toLowerCase().indexOf('msie') != -1);
-		 webgl = !ie;
+		var agent = navigator.userAgent.toLowerCase();
+		var ie =  (agent.indexOf('msie') != -1 || agent.indexOf('trident') != -1);
+		webgl = !ie;
 	}
 	//console.log(webgl);
 	if( webgl )
